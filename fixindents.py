@@ -68,6 +68,7 @@ output_group = parser.add_mutually_exclusive_group(required=True)
 output_group.add_argument('--dest',
                           help='File or folder to which code should be written.')
 output_group.add_argument('--debug',
+                          help="Output converted data to console, don't write anything.",
                           action='store_true',
                           default=False)
 parser.add_argument('--exclude',
@@ -78,7 +79,7 @@ parser.add_argument('--exclude',
 parser.add_argument('--extensions',
                     help=(
                         'Comma-separated list of file extensions to convert. '
-                        'Only useful when SOURCE is a directory'
+                        'Only useful when SOURCE is a directory.'
                     ))
 args = parser.parse_args()
 
