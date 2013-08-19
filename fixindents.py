@@ -10,7 +10,6 @@ import os
 import sys
 from argparse import ArgumentParser
 
-VERSION = '0.1'
 NOTOUCH_DIRS = ('.git', '.hg', '.svn')
 
 
@@ -38,10 +37,8 @@ def convert_indents(in_filename, out_filename, in_tabs, in_size, out_tabs, out_s
         out_file.close()
 
 
-parser = ArgumentParser(
-    description='Fix indentation in files and folders.',
-)
-parser.add_argument('--version', action='version', version=VERSION)
+parser = ArgumentParser(description=__desc__)
+parser.add_argument('--version', action='version', version=__version__)
 
 # Source file indentation specs
 source_specs = parser.add_mutually_exclusive_group(required=True)
