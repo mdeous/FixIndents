@@ -5,8 +5,8 @@ A simple yet flexible utility to convert indentation in your source code files.
 ## Why?
 
 I needed to convert indentations in a source code file, and I wasn't able to find anything
-really flexible to do this. So, this script is an attempt to code something flexible enough
-to handle any possible use-case.
+really flexible to do this. So, this is an attempt to code something flexible enough to
+handle any possible use-case.
 
 ## Usage
 
@@ -38,23 +38,19 @@ to handle any possible use-case.
 
 ### Exemples
 
-* Convert `fixindents.py` 4-spaces indents to tab indents, write to `fixendents_tabs.py`:
-
+Convert `fixindents.py` 4-spaces indents to tab indents, write to `fixendents_tabs.py`:
 
     fixindents.py --source-size 4 --dest-tabs --source fixindents.py --dest fixindents_tabs.py
 
-* Convert previously created `fixindents_tabs.py` to 2-spaces indents, write to `fixindents_space.py`:
-
+Convert previously created `fixindents_tabs.py` to 2-spaces indents, write to `fixindents_space.py`:
 
     fixindents.py --source-tabs --dest-size 2 --source fixindents_tabs.py --dest fixindents_space.py
 
-* Convert all files in the `FixIndents` folder from 4-spaces to tabs, write to the `FixIndentsTabs` folder:
-
+Convert all files in the `FixIndents` folder from 4-spaces to tabs, write to the `FixIndentsTabs` folder:
 
     fixindents.py --source-size 4 --dest-tabs --source FixIndents --dest FixIndentsTabs
 
-* Convert 4-spaces `.py` files in the `FixIndents` folder to tabs, write to the `FixIndentsTabs` folder:
-
+Convert 4-spaces `.py` files in the `FixIndents` folder to tabs, write to the `FixIndentsTabs` folder:
 
     fixindents.py --source-size 4 --dest-tabs --source FixIndents --dest FixIndentsTabs --extentions ".py"
 
