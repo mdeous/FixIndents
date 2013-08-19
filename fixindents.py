@@ -78,7 +78,7 @@ parser.add_argument('--exclude',
                     ))
 parser.add_argument('--extensions',
                     help=(
-                        'Comma-separated list of file extensions to convert. '
+                        'Comma-separated list of specific file extensions to convert. '
                         'Only useful when SOURCE is a directory.'
                     ))
 args = parser.parse_args()
@@ -112,18 +112,21 @@ else:
         for d in NOTOUCH_DIRS:
             if d in dirnames:
                 dirnames.remove(d)
-        handled_files = set()
-        for ext in args.extensions.split(','):
-            for f in filenames:
-                if f[-(len(ext)):] == ext:
-                    handled_files.add(f)
+        if args.extensions is not None:
+            handled_files = set()
+            for ext in args.extensions.split(','):
+                for f in filenames:
+                    if f[-(len(ext)):] == ext:
+                        handled_files.add(f)
+        else:
+            handled_files = filenames
         for filename in handled_files:
             in_path = os.path.abspath(os.path.join(dirpath, filename))
             out_path = os.path.abspath(os.path.join(args.dest, dirpath, filename))
             out_dir = os.path.dirname(out_path)
             if (not args.debug) and (not os.path.exists(out_dir)):
                 # TODO: prompt to overwrite directory if exists
-                os.mkdir(out_dir)
+                os.makedirs(out_dir)
                 # TODO: prompt to overwrite file if exists
             convert_indents(
                 in_path, out_path,
