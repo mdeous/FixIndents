@@ -7,7 +7,7 @@ from setuptools import setup
 import fixindents
 
 
-README = open(os.path.join(os.path.dirname(__file__), 'README.md')).read().strip()
+README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read().strip()
 DEPENDENCIES = ['distribute']
 
 
