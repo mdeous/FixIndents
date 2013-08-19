@@ -76,7 +76,8 @@ def main():
                         help=(
                             'Comma-separated list of directory names to ignore. '
                             'Only useful when SOURCE is a directory.'
-                        ))
+                        ),
+                        metavar='FOLDERS')
     parser.add_argument('--extensions',
                         help=(
                             'Comma-separated list of specific file extensions to convert. '

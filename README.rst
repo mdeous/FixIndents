@@ -43,7 +43,7 @@ fixindents -h
 
     usage: fixindents.py [-h] [--version] (--source-tabs | --source-size SIZE)
                          (--dest-tabs | --dest-size SIZE) --source SOURCE
-                         (--dest DEST | --debug) [--exclude EXCLUDE]
+                         (--dest DEST | --debug) [--exclude FOLDERS]
                          [--extensions EXTENSIONS]
 
     A simple yet flexible utility to convert indentation.
@@ -59,7 +59,7 @@ fixindents -h
       --dest DEST           File or folder to which code should be written.
       --debug               Output converted data to console, don't write
                             anything.
-      --exclude EXCLUDE     Comma-separated list of directory names to ignore.
+      --exclude FOLDERS     Comma-separated list of directory names to ignore.
                             Only useful when SOURCE is a directory.
       --extensions EXTENSIONS
                             Comma-separated list of specific file extensions to
