@@ -8,6 +8,20 @@ I needed to convert indentations in a source code file, and I wasn't able to fin
 really flexible to do this. So, this is an attempt to code something flexible enough to
 handle any possible use-case.
 
+## Installation
+
+### From GitHub
+
+To install the latest revision, just clone the repository and run the `setup.py` script:
+
+    git clone https://github.com/mattoufoutu/FixIndents.git
+    cd FixIndents
+    sudo python setup.py install
+
+### From PyPI
+
+Soon...
+
 ## Usage
 
 ### fixindents -h
