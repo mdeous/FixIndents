@@ -80,8 +80,7 @@ Convert previously created ``fixindents_tabs.py`` to 2-spaces indents, write to 
 
     fixindents.py --source-tabs --dest-size 2 --source fixindents_tabs.py --dest fixindents_space.py
 
-Convert all files in the ``FixIndents`` folder from 4-spaces to tabs,
-write to the ``FixIndentsTabs`` folder:
+Convert all files in the ``FixIndents`` folder from 4-spaces to tabs, write to the ``FixIndentsTabs`` folder:
 
 ::
 
