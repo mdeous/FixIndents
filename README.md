@@ -16,11 +16,13 @@ To install the latest revision, just clone the repository and run the `setup.py`
 
     git clone https://github.com/mattoufoutu/FixIndents.git
     cd FixIndents
-    sudo python setup.py install
+    python setup.py install
 
 ### From PyPI
 
-Soon...
+As usual...:
+
+    pip install FixIndents
 
 ## Usage
 
