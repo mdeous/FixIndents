@@ -87,9 +87,11 @@ def main():
 
     # Arguments checks
     if not os.path.exists(args.source):
-        print 'File or directory not found: %s' % args.source
-        sys.exit(2)
-    # TODO: check indent size (should not be 0)
+        parser.error('file or directory not found: %s' % args.source)
+    if (not args.source_tabs) and (args.source_size == 0):
+        parser.error("--source-size value can't be 0")
+    if (not args.dest_tabs) and (args.dest_size == 0):
+        parser.error("--dest-size value can't be 0")
 
     # File input
     if os.path.isfile(args.source):
@@ -103,7 +105,7 @@ def main():
     # Directory input
     else:
         if args.source == args.dest:
-            parser.error("SOURCE and DEST can not be the same.")
+            parser.error("--source and --dest values can't be the same.")
         no_touch_dirs += () if args.exclude is None else tuple(args.exclude.split(','))
         if args.debug:
             args.dest = '.'  # Prevents errors
