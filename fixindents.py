@@ -35,6 +35,19 @@ def convert_indents(in_filename, out_filename, in_tabs, in_size, out_tabs, out_s
         out_file.close()
 
 
+def overwrite_file(path):
+    print "[!] File already exists: %s" % path
+    print "    Overwrite? [y/N] ",
+    resp = raw_input().lower()
+    if resp == 'y':
+        return True
+    elif resp in ('', 'n'):
+        return False
+    else:
+        print '[!] Invalid answer, aborting'
+        sys.exit(0)
+
+
 def main():
     no_touch_dirs = ('.git', '.hg', '.svn')
 
@@ -95,12 +108,21 @@ def main():
 
     # File input
     if os.path.isfile(args.source):
-        convert_indents(
-            args.source, args.dest,
-            args.source_tabs, args.source_size,
-            args.dest_tabs, args.dest_size,
-            args.debug
-        )
+        if (not args.debug) and os.path.exists(args.dest):
+            if overwrite_file(args.dest):
+                convert_indents(
+                    args.source, args.dest,
+                    args.source_tabs, args.source_size,
+                    args.dest_tabs, args.dest_size,
+                    args.debug
+                )
+        else:
+            convert_indents(
+                args.source, args.dest,
+                args.source_tabs, args.source_size,
+                args.dest_tabs, args.dest_size,
+                args.debug
+            )
 
     # Directory input
     else:
@@ -129,15 +151,22 @@ def main():
                 out_path = os.path.abspath(os.path.join(args.dest, dirpath, filename))
                 out_dir = os.path.dirname(out_path)
                 if (not args.debug) and (not os.path.exists(out_dir)):
-                    # TODO: prompt to overwrite directory if exists
                     os.makedirs(out_dir)
-                    # TODO: prompt to overwrite file if exists
-                convert_indents(
-                    in_path, out_path,
-                    args.source_tabs, args.source_size,
-                    args.dest_tabs, args.dest_size,
-                    args.debug
-                )
+                if (not args.debug) and os.path.exists(out_path):
+                    if overwrite_file(out_path):
+                        convert_indents(
+                            in_path, out_path,
+                            args.source_tabs, args.source_size,
+                            args.dest_tabs, args.dest_size,
+                            args.debug
+                        )
+                else:
+                    convert_indents(
+                        in_path, out_path,
+                        args.source_tabs, args.source_size,
+                        args.dest_tabs, args.dest_size,
+                        args.debug
+                    )
 
 
 if __name__ == '__main__':
