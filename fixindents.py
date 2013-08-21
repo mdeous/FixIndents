@@ -3,7 +3,7 @@
 
 NAME = 'FixIndents'
 DESC = 'A simple yet flexible utility to convert indentation.'
-VERSION = '0.1'
+VERSION = '0.2'
 AUTHOR = 'Mathieu D. (MatToufoutu)'
 
 import os
